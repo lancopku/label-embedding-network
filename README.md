@@ -16,11 +16,11 @@ The outputs will be in ./100_results
 ### CIFAR-10
 python3 cifar10.py --mode=baseline  
 python3 cifar10.py --mode=emb  
-The outputs will be in ./10_results  
+The outputs will be in ./10_results.  
 ### MNIST
 python3 cnn.py --mode=baseline  
 python3 cnn.py --mode=emb  
 The outputs will be in ./cnn_results  
 python3 mlp.py --mode=baseline  
 python3 mlp.py --mode=emb  
-The outputs will be in ./mlp_results  
+The outputs will be in ./mlp_results.  
