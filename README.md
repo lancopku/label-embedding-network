@@ -1,5 +1,5 @@
 # LabelEmb
-This is an implementation of the paper [Label Embedding Network: Learning Label Representation for Soft Training of Deep Networks](https://xxx).  
+This is an implementation of the paper [Label Embedding Network: Learning Label Representation for Soft Training of Deep Networks](https://xxxx).  
 Label Embedding Network can learn label representation (label embedding) during the training process of deep networks. With the proposed method, the label embedding is adaptively and automatically learned through back propagation. The original one-hot represented loss function is converted into a new loss function with soft distributions, such that the originally unrelated labels have continuous interactions with each other during the training process. As a result, the trained model can achieve substantially higher accuracy and with faster convergence speed. Experimental results based on competitive tasks demonstrate the effectiveness of the proposed method, and the learned label embedding is reasonable and interpretable. The proposed method achieves comparable or even better results than the state-of-the-art systems.  
 ## DataSet
 [CIFAR100](https://www.cs.toronto.edu/~kriz/cifar.html), [CIFAR10](https://www.cs.toronto.edu/~kriz/cifar.html) and [MNIST](http://yann.lecun.com/exdb/mnist/).
