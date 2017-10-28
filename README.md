@@ -1,0 +1,2 @@
+# LabelEmb
+Label Embedding Network
