@@ -9,17 +9,26 @@ The contributions of this work are as follows:
 
 **General-purpose solution and competitive results**: The proposed method can be widely applied to various models, including CNN, ResNet, and Seq-to-Seq models. We conducted experiments on computer vision tasks including CIFAR-100, CIFAR-10, and MNIST, and on natural language processing tasks including LCSTS text summarization task and IWSLT2015 machine translation task.
 Results suggest that the proposed method achieves significantly better accuracy than the existing methods (CNN, ResNet, and Seq-to-Seq). We achieve results comparable or even better than the state-of-the-art systems on those tasks.   
+
+<br />  
+
 ## DataSet
 CIFAR100: [Download](https://www.cs.toronto.edu/~kriz/cifar.html)  
 CIFAR10: [Download](https://www.cs.toronto.edu/~kriz/cifar.html)  
 MNIST: [Download](http://yann.lecun.com/exdb/mnist/)  
 LCSTS: [Download](http://icrc.hitsz.edu.cn/Article/show/139.html)  
-IWSLT2015: [Download](https://nlp.stanford.edu/projects/nmt/data/iwslt15.en-vi/)
+IWSLT2015: [Download](https://nlp.stanford.edu/projects/nmt/data/iwslt15.en-vi/)  
+
+<br />  
+
 ## Environment and Dependency
 - Ubuntu 16.04
 - Python 3.5
 - Tensorflow 1.3
-- Pytorch 0.2.0
+- Pytorch 0.2.0  
+
+<br />  
+
 ## Training for Computer Vision
 You can change the training mode by setting the parameter "mode", as the `mode=baseline`
 means the baseline models(CNN, ResNet-8 or ResNet-18) and the `mode=emb` means our proposed
@@ -41,7 +50,6 @@ The outputs will be in `./cnn_results`
 `python3 mlp.py --mode=emb`  
 The outputs will be in `./mlp_results`  
 
-<br />  
 <br />  
 <br />  
 
