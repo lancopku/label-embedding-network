@@ -12,7 +12,9 @@ Results suggest that the proposed method achieves significantly better accuracy 
 ## DataSet
 CIFAR100: [Download](https://www.cs.toronto.edu/~kriz/cifar.html)  
 CIFAR10: [Download](https://www.cs.toronto.edu/~kriz/cifar.html)  
-and MNIST: [Download](http://yann.lecun.com/exdb/mnist/)
+MNIST: [Download](http://yann.lecun.com/exdb/mnist/)
+LCSTS: [Download](http://icrc.hitsz.edu.cn/Article/show/139.html)
+IWSLT2015: [Download](https://nlp.stanford.edu/projects/nmt/data/iwslt15.en-vi/)
 ## Environment and Dependency
 - Ubuntu 16.04
 - Python 3.5
