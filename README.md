@@ -41,6 +41,7 @@ The outputs will be in `./cnn_results`
 `python3 mlp.py --mode=emb`  
 The outputs will be in `./mlp_results`  
 
+<br />  
 
 ## Training for Natural Language Processing
 ### LCSTS
