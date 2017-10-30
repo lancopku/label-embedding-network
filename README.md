@@ -24,20 +24,20 @@ means the baseline models(CNN, ResNet-8 or ResNet-18) and the "mode=emb" means o
 label embedding network. There are also some other super parameters, see the codes for more
 details.  
 ### CIFAR-100
-python3 cifar100.py --mode=baseline  
-python3 cifar100.py --mode=emb  
-The outputs will be in ./100_results  
+`python3 cifar100.py --mode=baseline`  
+`python3 cifar100.py --mode=emb`  
+The outputs will be in `./100_results`  
 ### CIFAR-10
-python3 cifar10.py --mode=baseline  
-python3 cifar10.py --mode=emb  
-The outputs will be in ./10_results  
+`python3 cifar10.py --mode=baseline`  
+`python3 cifar10.py --mode=emb`  
+The outputs will be in `./10_results`  
 ### MNIST
-python3 cnn.py --mode=baseline  
-python3 cnn.py --mode=emb  
-The outputs will be in ./cnn_results  
-python3 mlp.py --mode=baseline  
-python3 mlp.py --mode=emb  
-The outputs will be in ./mlp_results  
+`python3 cnn.py --mode=baseline`  
+`python3 cnn.py --mode=emb`  
+The outputs will be in `./cnn_results`  
+`python3 mlp.py --mode=baseline`  
+`python3 mlp.py --mode=emb`  
+The outputs will be in `./mlp_results`  
 ## Results
 ### Results of Label Embedding on computer vision:  
 ![cv_tab.png](https://github.com/lancopku/LabelEmb/blob/master/fig/cv_tab.PNG)  
