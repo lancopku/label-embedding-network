@@ -84,7 +84,7 @@ Results of Label Embedding for LCSTS:
 ![lcsts_tab.png](https://github.com/lancopku/LabelEmb/blob/master/fig/lcsts_tab.png)  
 
 Results of Label Embedding for IWSLT2015:
-![iwslt_tab.png](https://github.com/lancopku/LabelEmb/blob/master/fig/iwslt_tab.png)  
+![iwslt_tab.png](https://github.com/lancopku/LabelEmb/blob/master/fig/iwslt_tab.png){:height="50%" width="50%"}  
 
 Examples of the similarity results on IWSLT2015:
 ![iwslt_heatmap.png](https://github.com/lancopku/LabelEmb/blob/master/fig/iwslt_heatmap.png)  
