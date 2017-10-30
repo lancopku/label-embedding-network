@@ -81,10 +81,10 @@ python3 predict.py -gpus 0 -config iwslt.yaml -unk -score emb -restore data/lcst
 
 ## Results for Natural Language Processing
 Results of Label Embedding for LCSTS:
-![lcsts_tab.png](https://github.com/lancopku/LabelEmb/blob/master/fig/lcsts_tab.PNG)  
+![lcsts_tab.png](https://github.com/lancopku/LabelEmb/blob/master/fig/lcsts_tab.png)  
 
 Results of Label Embedding for IWSLT2015:
-![iwslt_tab.png](https://github.com/lancopku/LabelEmb/blob/master/fig/iwslt_tab.PNG)  
+![iwslt_tab.png](https://github.com/lancopku/LabelEmb/blob/master/fig/iwslt_tab.png)  
 
 Examples of the similarity results on IWSLT2015:
-![iwslt_heatmap.png](https://github.com/lancopku/LabelEmb/blob/master/fig/iwslt_heatmap.PNG)  
+![iwslt_heatmap.png](https://github.com/lancopku/LabelEmb/blob/master/fig/iwslt_heatmap.png)  
