@@ -41,13 +41,13 @@ The outputs will be in `./cnn_results`
 `python3 mlp.py --mode=emb`  
 The outputs will be in `./mlp_results`  
 ## Training for Natural Language Processing
-###LCSTS
+### LCSTS
 ```bash
 python3 preprocess.py -train_src TRAIN_SRC_DATA -train_tgt TRAIN_TGT_DATA
-					  -test_src TEST_SRC_DATA -test_tgt TEST_TGT_DATA
-					  -valid_src VALID_SRC_DATA -valid_tgt VALID_TGT_DATA
-					  -save_data data/lcsts/lcsts.low.share.train.pt
-					  -lower -share
+			  -test_src TEST_SRC_DATA -test_tgt TEST_TGT_DATA
+			  -valid_src VALID_SRC_DATA -valid_tgt VALID_TGT_DATA
+			  -save_data data/lcsts/lcsts.low.share.train.pt
+			  -lower -share
 ```
 ```bash
 python3 train.py -gpus 0 -config lcsts.yaml -unk -score emb -loss emb -log label_embedding
@@ -55,13 +55,13 @@ python3 train.py -gpus 0 -config lcsts.yaml -unk -score emb -loss emb -log label
 ```bash
 python3 predict.py -gpus 0 -config lcsts.yaml -unk -score emb -restore data/lcsts/label_embedding/best_rouge_checkpoint.pt
 ```
-###IWSLT2015
+### IWSLT2015
 ```bash
 python3 preprocess.py -train_src TRAIN_SRC_DATA -train_tgt TRAIN_TGT_DATA
-					  -test_src TEST_SRC_DATA -test_tgt TEST_TGT_DATA
-					  -valid_src VALID_SRC_DATA -valid_tgt VALID_TGT_DATA
-					  -save_data data/iwslt15/iwslt.low.train.pt
-					  -lower
+			  -test_src TEST_SRC_DATA -test_tgt TEST_TGT_DATA
+			  -valid_src VALID_SRC_DATA -valid_tgt VALID_TGT_DATA
+			  -save_data data/iwslt15/iwslt.low.train.pt
+			  -lower
 ```
 ```bash
 python3 train.py -gpus 0 -config iwslt.yaml -unk -score emb -loss emb -log label_embedding
