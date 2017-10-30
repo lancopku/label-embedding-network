@@ -20,7 +20,7 @@ IWSLT2015: [Download](https://nlp.stanford.edu/projects/nmt/data/iwslt15.en-vi/)
 - Python 3.5
 - Tensorflow 1.3
 - Pytorch 0.2.0
-## Training
+## Training for Computer Vision
 You can change the training mode by setting the parameter "mode", as the `mode=baseline`
 means the baseline models(CNN, ResNet-8 or ResNet-18) and the `mode=emb` means our proposed
 label embedding network. There are also some other super parameters, see the codes for more
@@ -40,6 +40,35 @@ The outputs will be in `./cnn_results`
 `python3 mlp.py --mode=baseline`  
 `python3 mlp.py --mode=emb`  
 The outputs will be in `./mlp_results`  
+## Training for Natural Language Processing
+###LCSTS
+```bash
+python3 preprocess.py -train_src TRAIN_SRC_DATA -train_tgt TRAIN_TGT_DATA
+					  -test_src TEST_SRC_DATA -test_tgt TEST_TGT_DATA
+					  -valid_src VALID_SRC_DATA -valid_tgt VALID_TGT_DATA
+					  -save_data data/lcsts/lcsts.low.share.train.pt
+					  -lower -share
+```
+```bash
+python3 train.py -gpus 0 -config lcsts.yaml -unk -score emb -loss emb -log label_embedding
+```
+```bash
+python3 predict.py -gpus 0 -config lcsts.yaml -unk -score emb -restore data/lcsts/label_embedding/best_rouge_checkpoint.pt
+```
+###IWSLT2015
+```bash
+python3 preprocess.py -train_src TRAIN_SRC_DATA -train_tgt TRAIN_TGT_DATA
+					  -test_src TEST_SRC_DATA -test_tgt TEST_TGT_DATA
+					  -valid_src VALID_SRC_DATA -valid_tgt VALID_TGT_DATA
+					  -save_data data/iwslt15/iwslt.low.train.pt
+					  -lower
+```
+```bash
+python3 train.py -gpus 0 -config iwslt.yaml -unk -score emb -loss emb -log label_embedding
+```
+```bash
+python3 predict.py -gpus 0 -config iwslt.yaml -unk -score emb -restore data/lcsts/label_embedding/best_bleu_checkpoint.pt
+```
 ## Results
 ### Results of Label Embedding on computer vision:  
 ![cv_tab.png](https://github.com/lancopku/LabelEmb/blob/master/fig/cv_tab.PNG)  

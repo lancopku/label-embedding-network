@@ -1,4 +1,4 @@
-data: '/home/mashuming/data/summarization/lcsts/lcsts.low.share.train.pt'
+data: 'data/lcsts/lcsts.low.share.train.pt'
 log: 'data/lcsts/'
 epoch: 10
 batch_size: 64
