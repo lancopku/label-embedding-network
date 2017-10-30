@@ -19,8 +19,8 @@ and MNIST: [Download](http://yann.lecun.com/exdb/mnist/)
 - Tensorflow 1.3
 - Pytorch 0.2.0
 ## Training
-You can change the training mode by setting the parameter "mode", as the "mode=baseline"
-means the baseline models(CNN, ResNet-8 or ResNet-18) and the "mode=emb" means our proposed
+You can change the training mode by setting the parameter "mode", as the `mode=baseline`
+means the baseline models(CNN, ResNet-8 or ResNet-18) and the `mode=emb` means our proposed
 label embedding network. There are also some other super parameters, see the codes for more
 details.  
 ### CIFAR-100
