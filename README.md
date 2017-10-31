@@ -9,7 +9,7 @@ The contributions of this work are as follows:
 
 **General-purpose solution and competitive results**: The proposed method can be widely applied to various models, including CNN, ResNet, and Seq-to-Seq models. We conducted experiments on computer vision tasks including CIFAR-100, CIFAR-10, and MNIST, and on natural language processing tasks including LCSTS text summarization task and IWSLT2015 machine translation task.
 Results suggest that the proposed method achieves significantly better accuracy than the existing methods (CNN, ResNet, and Seq-to-Seq). We achieve results comparable or even better than the state-of-the-art systems on those tasks.   
-
+<br />  
 bibtex:
 ```
 @article{LabelEmb,
@@ -39,7 +39,7 @@ IWSLT2015: [Download](https://nlp.stanford.edu/projects/nmt/data/iwslt15.en-vi/)
 
 <br />  
 
-## Training for Computer Vision
+## Training for Computer Vision Tasks
 You can change the training mode by setting the parameter "mode", as the `mode=baseline`
 means the baseline models(CNN, ResNet-8 or ResNet-18) and the `mode=emb` means our proposed
 label embedding network. There are also some other super parameters, see the codes for more
@@ -63,7 +63,7 @@ The outputs will be in `./mlp_results`
 <br />  
 <br />  
 
-## Training for Natural Language Processing
+## Training for Natural Language Processing Tasks
 ### LCSTS (Text Summarization)
 ```bash
 python3 preprocess.py -train_src TRAIN_SRC_DATA -train_tgt TRAIN_TGT_DATA
