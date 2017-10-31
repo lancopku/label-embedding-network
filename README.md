@@ -10,6 +10,17 @@ The contributions of this work are as follows:
 **General-purpose solution and competitive results**: The proposed method can be widely applied to various models, including CNN, ResNet, and Seq-to-Seq models. We conducted experiments on computer vision tasks including CIFAR-100, CIFAR-10, and MNIST, and on natural language processing tasks including LCSTS text summarization task and IWSLT2015 machine translation task.
 Results suggest that the proposed method achieves significantly better accuracy than the existing methods (CNN, ResNet, and Seq-to-Seq). We achieve results comparable or even better than the state-of-the-art systems on those tasks.   
 
+**bibtex**  
+```
+@article{labelEmb,
+  author = {Xu Sun and Bingzhen Wei and Xuancheng Ren and Shuming Ma},
+  journal = {CoRR},
+  title = {Label Embedding Network: Learning Label Representation for Soft Training of Deep Networks.},
+  volume = {abs/1710.10393},
+  year = 2017
+}
+```
+
 <br />  
 
 ## DataSet
