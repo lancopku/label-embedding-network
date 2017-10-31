@@ -1,5 +1,6 @@
-# LabelEmb
+# Label Embedding Network
 This is an implementation of the paper [Label Embedding Network: Learning Label Representation for Soft Training of Deep Networks https://arxiv.org/abs/1710.10393](https://arxiv.org/abs/1710.10393).  
+
 Label Embedding Network can learn label representation (label embedding) during the training process of deep networks. With the proposed method, the label embedding is adaptively and automatically learned through back propagation. The original one-hot represented loss function is converted into a new loss function with soft distributions, such that the originally unrelated labels have continuous interactions with each other during the training process. As a result, the trained model can achieve substantially higher accuracy and with faster convergence speed. Experimental results based on competitive tasks demonstrate the effectiveness of the proposed method, and the learned label embedding is reasonable and interpretable. The proposed method achieves comparable or even better results than the state-of-the-art systems.  
   
 The contributions of this work are as follows:  
@@ -46,12 +47,12 @@ means the baseline models(CNN, ResNet-8 or ResNet-18) and the `mode=emb` means o
 label embedding network. There are also some other super parameters, see the codes for more
 details.  
 ### CIFAR-100
-`python3 cifar100.py --mode=baseline`  
-`python3 cifar100.py --mode=emb`  
+`python3 resnet18.py --mode=baseline`  
+`python3 resnet18.py --mode=emb`  
 The outputs will be in `./100_results`  
 ### CIFAR-10
-`python3 cifar10.py --mode=baseline`  
-`python3 cifar10.py --mode=emb`  
+`python3 resnet8.py --mode=baseline`  
+`python3 resnet8.py --mode=emb`  
 The outputs will be in `./10_results`  
 ### MNIST
 `python3 cnn.py --mode=baseline`  
