@@ -1,5 +1,5 @@
 # Label Embedding Network
-This is an implementation of the paper [Label Embedding Network: Learning Label Representation for Soft Training of Deep Networks https://arxiv.org/abs/1710.10393](https://arxiv.org/abs/1710.10393).  
+This is an implementation of the paper [Label Embedding Network: Learning Label Representation for Soft Training of Deep Networks https://arxiv.org/abs/1710.10393](https://arxiv.org/abs/1710.10393).   
 
 Label Embedding Network can learn label representation (label embedding) during the training process of deep networks. With the proposed method, the label embedding is adaptively and automatically learned through back propagation. The original one-hot represented loss function is converted into a new loss function with soft distributions, such that the originally unrelated labels have continuous interactions with each other during the training process. As a result, the trained model can achieve substantially higher accuracy and with faster convergence speed. Experimental results based on competitive tasks demonstrate the effectiveness of the proposed method, and the learned label embedding is reasonable and interpretable. The proposed method achieves comparable or even better results than the state-of-the-art systems.  
   
@@ -10,18 +10,17 @@ The contributions of this work are as follows:
 
 **General-purpose solution and competitive results**: The proposed method can be widely applied to various models, including CNN, ResNet, and Seq-to-Seq models. We conducted experiments on computer vision tasks including CIFAR-100, CIFAR-10, and MNIST, and on natural language processing tasks including LCSTS text summarization task and IWSLT2015 machine translation task.
 Results suggest that the proposed method achieves significantly better accuracy than the existing methods (CNN, ResNet, and Seq-to-Seq). We achieve results comparable or even better than the state-of-the-art systems on those tasks.   
-
-**bibtex**  
+<br />  
+bibtex:
 ```
-@article{labelEmb,
-  author = {Xu Sun and Bingzhen Wei and Xuancheng Ren and Shuming Ma},
-  journal = {CoRR},
-  title = {Label Embedding Network: Learning Label Representation for Soft Training of Deep Networks.},
-  volume = {abs/1710.10393},
-  year = 2017
+@article{LabelEmb,
+author = {Xu Sun and Bingzhen Wei and Xuancheng Ren and Shuming Ma},
+title = {Label Embedding Network: Learning Label Representation for Soft Training of Deep Networks},
+journal = {CoRR},
+volume = {abs/1710.10393},
+year = {2017}
 }
 ```
-
 <br />  
 
 ## DataSet
@@ -41,7 +40,7 @@ IWSLT2015: [Download](https://nlp.stanford.edu/projects/nmt/data/iwslt15.en-vi/)
 
 <br />  
 
-## Training for Computer Vision
+## Training for Computer Vision Tasks
 You can change the training mode by setting the parameter "mode", as the `mode=baseline`
 means the baseline models(CNN, ResNet-8 or ResNet-18) and the `mode=emb` means our proposed
 label embedding network. There are also some other super parameters, see the codes for more
@@ -65,8 +64,8 @@ The outputs will be in `./mlp_results`
 <br />  
 <br />  
 
-## Training for Natural Language Processing
-### LCSTS
+## Training for Natural Language Processing Tasks
+### LCSTS (Text Summarization)
 ```bash
 python3 preprocess.py -train_src TRAIN_SRC_DATA -train_tgt TRAIN_TGT_DATA
 		      -test_src TEST_SRC_DATA -test_tgt TEST_TGT_DATA
@@ -80,7 +79,7 @@ python3 train.py -gpus 0 -config lcsts.yaml -unk -score emb -loss emb -log label
 ```bash
 python3 predict.py -gpus 0 -config lcsts.yaml -unk -score emb -restore data/lcsts/label_embedding/best_rouge_checkpoint.pt
 ```
-### IWSLT2015
+### IWSLT2015 (English-Vietnamese Machine Translation)
 ```bash
 python3 preprocess.py -train_src TRAIN_SRC_DATA -train_tgt TRAIN_TGT_DATA
 		      -test_src TEST_SRC_DATA -test_tgt TEST_TGT_DATA
@@ -96,7 +95,7 @@ python3 predict.py -gpus 0 -config iwslt.yaml -unk -score emb -restore data/lcst
 ```  
 <br />  
 
-## Results for Computer Vision
+## Results for Computer Vision Tasks
 ### Results of Label Embedding on computer vision:  
 ![cv_tab.png](https://github.com/lancopku/LabelEmb/blob/master/Figures/cv_tab.PNG)  
 
@@ -108,7 +107,7 @@ python3 predict.py -gpus 0 -config iwslt.yaml -unk -score emb -restore data/lcst
 
 <br />  
 
-## Results for Natural Language Processing
+## Results for Natural Language Processing Tasks
 Results of Label Embedding for LCSTS:
 ![lcsts_tab.png](https://github.com/lancopku/LabelEmb/blob/master/Figures/lcsts_tab.png)  
 
