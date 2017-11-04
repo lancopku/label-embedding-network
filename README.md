@@ -35,8 +35,8 @@ IWSLT2015: [Download](https://nlp.stanford.edu/projects/nmt/data/iwslt15.en-vi/)
 ## Environment and Dependency
 - Ubuntu 16.04
 - Python 3.5
-- Tensorflow 1.3
-- Pytorch 0.2.0  
+- Tensorflow 1.3 (for MNIST)
+- Pytorch 0.2.0  (for other tasks)
 
 <br />  
 
