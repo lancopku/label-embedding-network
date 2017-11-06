@@ -122,7 +122,7 @@ def main(_):
         valid_data = mnist.validation  #5000
         ITERATION_COUNT = 10000
         ACCURACY_CHECK = 500
-        train_epoch = 30
+        train_epoch = 15
         train_iter_num = mnist.train.num_examples//batch_size
         best=0.0
         ibest=0
