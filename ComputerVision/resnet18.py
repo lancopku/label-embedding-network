@@ -22,7 +22,8 @@ import pickle
 parser = argparse.ArgumentParser(description='PyTorch CIFAR100 Training')
 parser.add_argument('--lr', default=0.001, type=float, help='learning rate')
 parser.add_argument('--tau', default=2, type=float, help='Softmax temperature')
-parser.add_argument('--alpha', default=0.5, type=float, help='alpha')
+parser.add_argument('--alpha', default=0.9, type=float, help='alpha')
+parser.add_argument('--beta', default=0.5, type=float, help='beta')
 parser.add_argument('--resume', '-r', action='store_true', help='resume from checkpoint')
 parser.add_argument('--mode', default='baseline', type=str, help='baseline or labelemb?')
 parser.add_argument('--data', default='./', type=str, help='file path of the dataset')
@@ -97,20 +98,21 @@ def comp_Loss(epoch, out1, out2, tar, emb_w, targets, mode):
     if mode == 'baseline':
         return L_o1_y
 
-    alpha = args.alpha # 0.5#adjust_alpha(epoch)
+    alpha = args.alpha # default:0.9
+    beta = args.beta # default:0.5#adjust_alpha(epoch)
     _, pred = torch.max(out2,1)
     mask = pred.eq(targets).float().detach()
     L_o1_emb = -torch.mean(my_loss(out1, soft_tar))
-    if mode == 'emb':
-        return alpha*L_o1_y + (1-alpha)*L_o1_emb
+    #if mode == 'emb':
+    #    return beta*L_o1_y + (1-beta)*L_o1_emb
 
     L_o2_y = F.cross_entropy(out2, targets)
     L_emb_o2 = -torch.sum(my_loss(tar, tau2_prob)*mask)/(torch.sum(mask)+1e-8)
-    gap = torch.gather(out2_prob, 1, targets.view(-1,1))-0.9
+    gap = torch.gather(out2_prob, 1, targets.view(-1,1))-alpha
     L_re = torch.sum(F.relu(gap))
     #L2_loss = F.mse_loss(emb_w.t(), emb_w.detach())
     
-    loss = alpha*L_o1_y + (1-alpha)*L_o1_emb +L_o2_y +L_emb_o2 +L_re
+    loss = beta*L_o1_y + (1-beta)*L_o1_emb +L_o2_y +L_emb_o2 +L_re
     return loss
 
 # Training
