@@ -103,8 +103,6 @@ def comp_Loss(epoch, out1, out2, tar, emb_w, targets, mode):
     _, pred = torch.max(out2,1)
     mask = pred.eq(targets).float().detach()
     L_o1_emb = -torch.mean(my_loss(out1, soft_tar))
-    #if mode == 'emb':
-    #    return beta*L_o1_y + (1-beta)*L_o1_emb
 
     L_o2_y = F.cross_entropy(out2, targets)
     L_emb_o2 = -torch.sum(my_loss(tar, tau2_prob)*mask)/(torch.sum(mask)+1e-8)
