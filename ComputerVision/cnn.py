@@ -33,7 +33,8 @@ emb = tf.Variable(v, True)
 # Create the model
 FLAGS = tf.app.flags.FLAGS
 tf.app.flags.DEFINE_integer("tau", 2, "Softmax temperature")
-tf.app.flags.DEFINE_float("alpha", 0.5, "alpha")
+tf.app.flags.DEFINE_float("alpha", 0.9, "alpha")
+tf.app.flags.DEFINE_float("beta", 0.5, "beta")
 tf.app.flags.DEFINE_integer("batch_size", 100, "batch_size")
 tf.app.flags.DEFINE_string("data_dir", "./MNIST_data", "data_dir")
 tf.app.flags.DEFINE_string("mode", "baseline", "baseline or labelemb?")
@@ -45,6 +46,8 @@ global_step = tf.Variable(0, trainable=False)
 x_image = tf.reshape(x, [-1, 28, 28, 1])
 
 #params
+alpha = FLAGS.alpha #0.9
+beta = FLAGS.beta #0.5
 W_conv1 = weight_variable([5, 5, 1, 32], seed=32, stddev=0.1)
 b_conv1 = bias_variable([32])
 W_conv2 = weight_variable([5, 5, 32, 64], seed=344, stddev=0.1) 
@@ -87,14 +90,13 @@ L_o1_y = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=y_, logit
 L_o1_emb = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=tf.stop_gradient(soft_target), logits=out1)) #L1
 L_o2_y = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=y_, logits=out2_stop))
 L_emb_o2 = tf.reduce_sum(tf.nn.softmax_cross_entropy_with_logits(labels=tau2_prob, logits=target)*mask)/(tf.reduce_sum(mask)+1e-8)
-L_re = tf.reduce_sum(tf.nn.relu(tf.reduce_sum(out2_prob*y_,-1)-0.9))
+L_re = tf.reduce_sum(tf.nn.relu(tf.reduce_sum(out2_prob*y_,-1)-alpha))
 #re = tf.reduce_mean(tf.square(tf.stop_gradient(W_out1)-W_out2)) + tf.reduce_mean(tf.square(tf.stop_gradient(b_out1)-b_out2))
 
-alpha = FLAGS.alpha
 if FLAGS.mode=='baseline':
     loss = L_o1_y
 elif FLAGS.mode =='emb':
-    loss = alpha*L_o1_y + (1-alpha)*L_o1_emb +L_o2_y +L_emb_o2 +L_re
+    loss = beta*L_o1_y + (1-beta)*L_o1_emb +L_o2_y +L_emb_o2 +L_re
 
 train_step = tf.train.AdamOptimizer().minimize(loss)
 
