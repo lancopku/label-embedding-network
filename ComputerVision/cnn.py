@@ -94,8 +94,6 @@ alpha = FLAGS.alpha
 if FLAGS.mode=='baseline':
     loss = L_o1_y
 elif FLAGS.mode =='emb':
-    loss = alpha*L_o1_y + (1-alpha)*L_o1_emb
-else:
     loss = alpha*L_o1_y + (1-alpha)*L_o1_emb +L_o2_y +L_emb_o2 +L_re
 
 train_step = tf.train.AdamOptimizer().minimize(loss)

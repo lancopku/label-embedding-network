@@ -22,7 +22,7 @@ tf.app.flags.DEFINE_float("alpha", 0.5, "alpha")
 tf.app.flags.DEFINE_float("learning_rate", 0.001, "learning_rate")
 tf.app.flags.DEFINE_integer("batch_size", 100, "batch_size")
 tf.app.flags.DEFINE_string("data_dir", "../MNIST_data", "data_dir")
-tf.app.flags.DEFINE_string("mode", "base", "train mode")
+tf.app.flags.DEFINE_string("mode", "baseline", "train mode")
 tf.app.flags.DEFINE_string("num", "0","number")
 x = tf.placeholder(tf.float32, [None, 784])
 y_ = tf.placeholder(tf.float32, [None, 10])
@@ -73,8 +73,6 @@ alpha = FLAGS.alpha
 if FLAGS.mode=='baseline':
     loss = L_o1_y
 elif FLAGS.mode =='emb':
-    loss = alpha*L_o1_y + (1-alpha)*L_o1_emb
-else:
     loss = alpha*L_o1_y + (1-alpha)*L_o1_emb +L_o2_y +L_emb_o2 +L_re
 
 train_step = tf.train.AdamOptimizer().minimize(loss, global_step)
