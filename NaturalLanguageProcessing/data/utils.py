@@ -4,7 +4,7 @@ import os
 import time
 import sys
 from data.script.PythonROUGE import PythonROUGE
-from data.script.SARI import SARIsent
+#from data.script.SARI import SARIsent
 
 class AttrDict(dict):
 
