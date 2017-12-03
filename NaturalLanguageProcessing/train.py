@@ -180,9 +180,9 @@ def train(epoch):
         updates += 1
 
         if updates % config.eval_interval == 0:
-            logging("epoch: %3d, ppl: %6.3f, time: %6.3f, updates: %8d, accuracy: %2.2f, vocab: %2.2f\n"
+            logging("epoch: %3d, ppl: %6.3f, time: %6.3f, updates: %8d, accuracy: %2.2f, vocab: %2.2f, loss: %2.2f\n"
                     % (epoch, math.exp(total_loss / report_total), time.time()-start_time, updates,
-                       report_correct * 100.0 / report_total, report_vocab * 100.0 / report_tot_vocab))
+                       report_correct * 100.0 / report_total, report_vocab * 100.0 / report_tot_vocab, loss))
             print('evaluating after %d updates...\r' % updates)
             score = eval(epoch)
             for metric in config.metric:
