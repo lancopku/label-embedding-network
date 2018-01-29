@@ -74,8 +74,8 @@ if opt.limit > 0:
     trainset.src = trainset.src[:opt.limit]
     validset = trainset
 
-trainloader = dataloader.get_loader(trainset, batch_size=config.batch_size, shuffle=True, num_workers=2)
-validloader = dataloader.get_loader(validset, batch_size=config.batch_size, shuffle=False, num_workers=2)
+trainloader = dataloader.get_loader(trainset, batch_size=config.batch_size, shuffle=True, num_workers=0)
+validloader = dataloader.get_loader(validset, batch_size=config.batch_size, shuffle=False, num_workers=0)
 
 if opt.pretrain:
     pretrain_embed = torch.load(config.emb_file)

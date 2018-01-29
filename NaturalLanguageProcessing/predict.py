@@ -61,7 +61,7 @@ src_vocab, tgt_vocab = datas['dicts']['src'], datas['dicts']['tgt']
 config.src_vocab = src_vocab.size()
 config.tgt_vocab = tgt_vocab.size()
 
-testloader = dataloader.get_loader(testset, batch_size=config.batch_size, shuffle=False, num_workers=2)
+testloader = dataloader.get_loader(testset, batch_size=config.batch_size, shuffle=False, num_workers=0)
 
 if opt.pretrain:
     pretrain_embed = torch.load(config.emb_file)

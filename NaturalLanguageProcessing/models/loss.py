@@ -42,6 +42,7 @@ class criterion_emb(nn.Module):
         super(criterion_emb, self).__init__()
         self.use_cuda = use_cuda
         self.weight = torch.ones(tgt_vocab_size)
+        self.weight[dict.PAD] = 0
         self.xent_logits_target = nn.CrossEntropyLoss(
             self.weight, size_average=False)
         if use_cuda:
